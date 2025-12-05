@@ -5,7 +5,7 @@ public class Exo10
 {
     public static void main(String[] args)
     {
-        // Déclaration des variables
+        // Déclaration des Variables
         int Résultat = 0;
         String Réponse;
 
