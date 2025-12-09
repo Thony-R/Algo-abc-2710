@@ -8,8 +8,8 @@ public class Exo15
         //Creation d'un objet scanner pour lire les entrer de l'utilisateur
         Scanner Sc = new Scanner(System.in);
         String DeviseI,DeviseF;
-        Double Montant,MontantC;
-
+        Double Montant;
+        Double MontantC = 0.0;
         //Demander à l'utilisateur de saisire les valeur
         System.out.println("Quel est votre monnaie ? (eur/usd/gbp)");
         DeviseI = Sc.nextLine().toLowerCase();
@@ -21,7 +21,7 @@ public class Exo15
         Sc.close();
 
         //Verifier si les devise sont different 
-        if (DeviseI!=DeviseF)
+        if (DeviseI==DeviseF)
         {
              System.out.println("Attention on ne peut pas convertir les deux même devise !");
         }
@@ -33,12 +33,10 @@ public class Exo15
                 switch (DeviseF) 
                 {
                     case "usd":
-                        MontantC = Montant*1.1648;
-                        System.out.println("Résultat : "+MontantC+" USD");
+                        MontantC = Math.round(100.00*(Montant*1.1648))/100.00;
                         break;
                     case "gbp":
-                        MontantC = Montant*0.8737;
-                        System.out.println("Résultat : "+MontantC+" GBP");
+                        MontantC = Math.round(100.00*(Montant*0.8737))/100.00;
                         break;
                 }
                 break;
@@ -46,12 +44,10 @@ public class Exo15
                 switch (DeviseF) 
                 {
                     case "eur":
-                        MontantC = Montant*0.8589;
-                        System.out.println("Résultat : "+MontantC+" EUR");
+                        MontantC = Math.round(100.00*(Montant*0.8589))/100.00;
                         break;
                     case "gbp":
-                        MontantC = Montant*0.7503;
-                        System.out.println("Résultat : "+MontantC+" GBP");
+                        MontantC = Math.round(100.00*(Montant*0.7503))/100.00;
                         break;
                 }
                 break;
@@ -59,17 +55,15 @@ public class Exo15
                 switch (DeviseF) 
                 {
                     case "eur":
-                        MontantC = Montant*1.1446;
-                        System.out.println("Résultat : "+MontantC+" EUR");
+                        MontantC = Math.round(100.00*(Montant*1.1446))/100.00;
                         break;
                     case "usd":
-                        MontantC = Montant*1.3330;
-                        System.out.println("Résultat : "+MontantC+" USD");
+                        MontantC = Math.round(100.00*(Montant*1.3330))/100.00;
                         break;
                 }
                 break;
         }
-                
+        System.out.println("Résultat : "+MontantC+" "+DeviseF.toUpperCase());
     }
 }   
 
