@@ -1,5 +1,7 @@
 package Exercices;
+
 import java.util.Scanner;
+import Outils.ScannersTypes;
 
 public class exo6 
 {
@@ -13,8 +15,11 @@ public class exo6
 
         //Demander à l'utilisateur d'entrer son Prenom et son age 
         System.out.println("Quel et votre prenom ?");
+        ScannersTypes.STRING(EntrerClavier);
         Prenom = EntrerClavier.nextLine();
+
         System.out.println("Quel et votre age ?");
+        ScannersTypes.INT(EntrerClavier);
         Age = EntrerClavier.nextInt();
 
         //afficher son prenom et son age en utilisant la concatenation

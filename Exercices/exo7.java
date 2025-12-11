@@ -1,5 +1,7 @@
 package Exercices;
+
 import java.util.Scanner;
+import Outils.ScannersTypes;
 
 public class exo7 
 {
@@ -11,12 +13,14 @@ public class exo7
     
         //Récuperation de la reponsse de l'utilisateur
         System.out.println("Do you speak english ? (Y / N)");
+        ScannersTypes.STRING(EntrerClavier);
         Reponse = EntrerClavier.nextLine();
 
         //Une boucle pour verifier ci la saisi de l'utilisateur est Valide
         while (!Reponse.equals("y") && !Reponse.equals("Y") && !Reponse.equals("N") && !Reponse.equals("n")) 
         {
         System.out.print("Veuiller entrer (Y/y) ou (N/n) : ");
+        ScannersTypes.STRING(EntrerClavier);
         Reponse = EntrerClavier.nextLine();
         }
 

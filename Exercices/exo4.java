@@ -1,6 +1,7 @@
 package Exercices;
 
 import java.util.Scanner;
+import Outils.ScannersTypes;
 
 public class exo4 
 {
@@ -12,6 +13,7 @@ public class exo4
 
         //Demander a l'utilisateur d'entrer la valeur a 
         System.out.println("Entrer la valeur de a :");
+        ScannersTypes.INT(EntrerClavier);
         a = EntrerClavier.nextInt();
 
         //Calculer le reste de a pour savoir si il est divisible par 2

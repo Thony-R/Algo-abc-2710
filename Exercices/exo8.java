@@ -1,6 +1,8 @@
 package Exercices;
 import java.util.Scanner;
 
+import Outils.ScannersTypes;
+
 public class exo8 
 {
     public static void main(String[] args) 
@@ -11,14 +13,23 @@ public class exo8
         
         //Demander à l'utilisateur d'entrer les reponsse attendu
         System.out.println("Votre prénom ?");
+        ScannersTypes.STRING(EntrerClavier);
         Prenom = EntrerClavier.nextLine();
+
         System.out.println("Votre nom ?");
+        ScannersTypes.STRING(EntrerClavier);
         Nom = EntrerClavier.nextLine();
+
         System.out.println("Votre adresse email ?");
+        ScannersTypes.STRING(EntrerClavier);
         Email = EntrerClavier.nextLine();
+
         System.out.println("Votre mot de passe ?");
+        ScannersTypes.STRING(EntrerClavier);
         Pass = EntrerClavier.nextLine();
+
         System.out.println("Confirmer votre mot de passe ?");
+        ScannersTypes.STRING(EntrerClavier);
         VerifPass = EntrerClavier.nextLine();
 
         //Verifier que les deux mots passe sont idententique

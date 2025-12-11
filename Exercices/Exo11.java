@@ -1,6 +1,8 @@
 package Exercices;
 import java.util.Scanner;
 
+import Outils.ScannersTypes;
+
 public class Exo11 
 {
     public static void main(String[] args)
@@ -14,6 +16,7 @@ public class Exo11
 
         // Demander à l'utilisateur combien il veut retirer
         System.out.println("Bonjour, combien voulez-vous retirer ?");
+        ScannersTypes.INT(Sc);
         Retrait = Sc.nextInt();
 
         // Vérifier si l'utilisateur a les fonds

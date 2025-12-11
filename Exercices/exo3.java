@@ -1,5 +1,7 @@
 package Exercices;
 import java.util.Scanner;
+import Outils.ScannersTypes;
+
 public class exo3
 {
     public static void main(String[] args) 
@@ -10,8 +12,11 @@ public class exo3
         
         // Demander à l'utilisateur de rentrer la valeur de a et de b
         System.out.println("Entrer la valeur de a : ");
+        ScannersTypes.FLOAT(EntrerClavier);
         a = EntrerClavier.nextFloat();
+        
         System.out.println("Entrer la valeur de b : ");
+        ScannersTypes.FLOAT(EntrerClavier);
         b = EntrerClavier.nextFloat();
         
         // Calculer la somme de et b
