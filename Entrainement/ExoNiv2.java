@@ -35,6 +35,7 @@ public class ExoNiv2
         // Boucle pour afficher les éléments des listes et calculer la somme totale des prix
         for(int i = 0; i < Articles.size(); i++) 
         {
+            System.out.print("\nVotre liste de course :\n");
             System.out.println(Articles.get(i) + " - " + Prix.get(i) + " euro");
             TPrix = Prix.get(i) + TPrix;
         }
