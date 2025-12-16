@@ -30,5 +30,6 @@ public class Exo2_6
         {
             System.out.print(n+" n'est pas un nombre premier.");
         }
+        sc.close();
     }
 }
