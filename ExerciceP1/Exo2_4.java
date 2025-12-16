@@ -13,7 +13,7 @@ public class Exo2_4
         ScannersTypes.INT(sc);
         a = sc.nextInt();
 
-        if (a%4==0 && a%100==0|| a%400==0) 
+        if (a%4==0 && (!(a%100==0) || a%400==0)) 
         {
             System.out.print(" l'année est bissextile");
         }
