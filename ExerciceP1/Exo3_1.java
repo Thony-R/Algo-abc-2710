@@ -10,26 +10,42 @@ public class Exo3_1
         Random random = new Random();
         int nbG = random.nextInt(100);
         int nbU;
+        int max = 100;
+        int min =0;
         int count= 0;
+        int countMdph =0;
         
+        System.out.print("\nTrouver le numéro gagnant entre "+min+" est "+max+"\n> ");
+        nbU = sc.nextInt();
+
         while (true) 
         {
-            System.out.print("\nTrouver le numéro gagnant\n> ");
-            nbU = sc.nextInt();
-            count+=1;
-
-            if(nbU == nbG)
+            if (nbU>min && nbU<max) 
             {
-                System.out.print("\nBravo vous avez trouvé en "+count+" essais");
+                count+=1;
+                if(nbU == nbG)
+                {
+                System.out.print("\nBravo vous avez trouvé en "+count+" essais (Erreur "+countMdph+")");
                 break;
+                }
+                else if (nbU>nbG) 
+                {
+                    max = nbU;
+                    System.out.print("\nC'est entre "+min+" est "+max+"\n> ");
+                    nbU = sc.nextInt();
+                }
+                else if (nbU<nbG)
+                {
+                    min = nbU;
+                    System.out.print("\nC'est entre "+min+" est "+max+"\n> ");
+                    nbU = sc.nextInt();
+                }
             }
-            else if (nbU>nbG) 
+            else
             {
-                System.out.print("\nC'est inferieur à "+nbU);
-            }
-            else if (nbU<nbG) 
-            {
-                System.out.print("\nC'est superieur à "+nbU);
+                    System.out.print("\nRéessayer le numéro gagnant entre "+min+" est "+max+"\n> ");
+                    nbU = sc.nextInt();
+                    countMdph+=1;
             }
         }
         sc.close();
