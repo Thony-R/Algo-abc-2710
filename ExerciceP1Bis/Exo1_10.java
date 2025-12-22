@@ -29,9 +29,9 @@ public class Exo1_10
                 
             }
             if(sTemp==i)
-                {
-                    nParfait.add(sTemp);
-                }
+            {
+                nParfait.add(sTemp);
+            }
         sTemp=0;
         i++;
         }
