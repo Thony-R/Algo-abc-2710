@@ -21,37 +21,37 @@ public class Emprunt
         tauxInteretAnnuel = sc.nextDouble();
         sc.close();
         
-        // System.out.println(mensualitéConstante(capitalEmprunte, nbrAnneeRbmt, tauxInteretAnnuel));
-        for(int n=0;n<tableauMensualité(capitalEmprunte, nbrAnneeRbmt, tauxInteretAnnuel).length;n++)
-        {
-            System.out.println(tableauMensualité(capitalEmprunte, nbrAnneeRbmt, tauxInteretAnnuel)[n]);
+        System.out.println(mensualitéConstante(capitalEmprunte, nbrAnneeRbmt, tauxInteretAnnuel));
+        // for(int n=0;n<tableauMensualité(capitalEmprunte, nbrAnneeRbmt, tauxInteretAnnuel).length;n++)
+        // {
+        //     System.out.println(tableauMensualité(capitalEmprunte, nbrAnneeRbmt, tauxInteretAnnuel)[n]);
             
-        }
+        // }
         
     }
 
-    // public static double mensualitéConstante (int capitalEmprunte,int nbrAnneeRbmt,double tauxInteretAnnuel)
-    // {
-    //     double tauxInteretmensuel = tauxInteretAnnuel/1200;
-    //     int nbMois = nbrAnneeRbmt*12;
-    //     double q = (1-Math.pow((1+tauxInteretmensuel), -nbMois));
-    //     double a = Arrondi.arrondi(capitalEmprunte*tauxInteretmensuel/q,2);
-    //     return a;
-    // }
-
-    public static int[]tableauMensualité(int capitalEmprunte,int nbrAnneeRbmt, double tauxInteretAnnuel)
+    public static double mensualitéConstante (int capitalEmprunte,int nbrAnneeRbmt,double tauxInteretAnnuel)
     {
         double tauxInteretmensuel = tauxInteretAnnuel/1200;
         int nbMois = nbrAnneeRbmt*12;
         double q = (1-Math.pow((1+tauxInteretmensuel), -nbMois));
         double a = Arrondi.arrondi(capitalEmprunte*tauxInteretmensuel/q,2);
-        int[]numMois = new int[nbMois];
-        
-        for(int i = 0; i<nbMois;i++)
-        {
-            numMois[i] = i+1;
-        }
-
-        return numMois;
+        return a;
     }
+
+    // public static int[]tableauMensualité(int capitalEmprunte,int nbrAnneeRbmt, double tauxInteretAnnuel)
+    // {
+    //     double tauxInteretmensuel = tauxInteretAnnuel/1200;
+    //     int nbMois = nbrAnneeRbmt*12;
+    //     double q = (1-Math.pow((1+tauxInteretmensuel), -nbMois));
+    //     double a = Arrondi.arrondi(capitalEmprunte*tauxInteretmensuel/q,2);
+    //     int[]numMois = new int[nbMois];
+        
+    //     for(int i = 0; i<nbMois;i++)
+    //     {
+    //         numMois[i] = i+1;
+    //     }
+
+    //     return numMois;
+    // }
 }
