@@ -72,5 +72,6 @@ public class Exercice3_6
         {
             System.out.println("le mot ne fais pas 5 lettre");
         }
+        sc.close();
     }    
 }
