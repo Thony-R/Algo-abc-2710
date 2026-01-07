@@ -15,6 +15,7 @@ public class Exercice3_6
 
         System.out.print("\nEntrer le mot à trouver (minimum 5 lettres)\n> ");
         motC = sc.nextLine();
+        System.out.print("\033\143");
 
         tab= new boolean[motC.length()];
         tab[0]= true;
