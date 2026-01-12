@@ -19,7 +19,7 @@ public class Exo3_2
             s = s-(s/2+1);
             m++;
         }
-        System.out.print("\nLe nombre de magasins dans lesquels il a acheté est de "+m);
+        System.out.print("\nLe nombre de magasins dans lesquels il a acheté est de "+m+"\n");
         sc.close();
     }
 }
