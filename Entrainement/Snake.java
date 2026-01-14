@@ -36,15 +36,15 @@ public class Snake
         switch (dep) 
         {
             case 'z':
-                faceY++;
-                
+                faceY--;
                 break;
         
             case 'q':
-                faceY--;
+                faceX--;
+
                 break;
             case 's':
-                faceX--;
+                faceY++;
                 break;
             case 'd':
                 faceX++;
