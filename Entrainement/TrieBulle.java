@@ -40,6 +40,7 @@ public class TrieBulle
             System.out.print(tab[i]+", ");
         }
         System.out.println();
+        System.out.println("nombre de passage "+passage);
     }   
         public static void rTableau(int[]tab)
         {

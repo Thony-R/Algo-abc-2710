@@ -7,37 +7,62 @@ public class Exo3_3
     {
         Scanner sc = new Scanner(System.in);
         String user;
-        char[]lettres = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+        char[]lettres = new char[26];
         int[]occurence= new int[26];
 
-        System.out.print("\nEntrer un texte de 120 caractères minimum\n> ");
-        user = sc.nextLine().toLowerCase();
-        sc.close();
-
-        if(user.length() >= 120)
+        do
         {
-            for(int i = 0; i < user.length();i++)
+            System.out.print("\nEntrer un texte de 120 caractères minimum\n> ");
+            user = sc.nextLine().toLowerCase();
+            sc.close();
+        }
+        while(user.length()<120);
+
+        user.replace('â', 'a');
+        user.replace('à', 'a');
+        user.replace('ä', 'a');
+
+        user.replace('é', 'e');
+        user.replace('è', 'e');
+        user.replace('ê', 'e');
+        user.replace('ë', 'e');
+
+        user.replace('î', 'i');
+        user.replace('ï', 'i');
+
+        user.replace('ô', 'o');
+        user.replace('ö', 'o');
+
+        user.replace('ù', 'u');
+        user.replace('û', 'u');
+        user.replace('ü', 'u');
+
+        user.replace('ç', 'c');
+
+        user.replace('ÿ', 'y');
+
+        char lettre = 'a';
+        for(int i =0;i<lettres.length;i++)
+        {
+            lettres[i]=lettre;
+            lettre++;
+        }
+
+        for(int i = 0; i < user.length();i++)
+        {
+            for(int j=0;j<lettres.length;j++) 
             {
-                for(int j=0;j<lettres.length;j++) 
+                if (lettres[j]==user.charAt(i)) 
                 {
-                    if (lettres[j]==user.charAt(i)) 
-                    {
-                        occurence[j]++;
-                    }
+                    occurence[j]++;
                 }
-            } 
-        
-            for(int t =0;t<lettres.length;t++)
-            {
-                System.out.println(lettres[t]+" "+occurence[t]);
             }
-        }
-
-        else
+        } 
+        
+        for(int t =0;t<lettres.length;t++)
         {
-            System.out.println("Vous n'avez pas entré 120 caractère");
+            System.out.println(lettres[t]+" "+occurence[t]);
         }
-
 
     }
 }
