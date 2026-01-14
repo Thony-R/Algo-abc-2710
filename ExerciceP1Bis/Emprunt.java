@@ -47,7 +47,7 @@ public class Emprunt
         
         for(int i = 0; i<=nbMois;i++)
         {
-            double k = capitalEmprunte - part_capita[i];
+            double k = capitalEmprunte ;
             numMois[i] = i+1;
             System.out.println(numMois[i]+" = "+k);
             a = a * i; 
