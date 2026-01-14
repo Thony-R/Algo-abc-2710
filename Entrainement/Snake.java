@@ -33,9 +33,11 @@ public class Snake
         System.out.print("\033[23;94H> ");
         dep = sc.nextLine().charAt(0);
         
-        switch (dep) {
+        switch (dep) 
+        {
             case 'z':
-                faceX++;
+                faceY++;
+                
                 break;
         
             case 'q':
@@ -45,7 +47,7 @@ public class Snake
                 faceX--;
                 break;
             case 'd':
-                faceY++;
+                faceX++;
                 break;
         }
         System.out.print("\033[u");
