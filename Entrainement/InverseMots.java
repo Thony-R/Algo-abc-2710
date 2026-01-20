@@ -14,11 +14,17 @@ public class InverseMots
         ScannersTypes.STRING(sc);
         originale = sc.nextLine();
 
-        for(int i = originale.length()-1;i>=0;i--)
+        System.out.println(inverse(originale));
+    }
+    public static String inverse(String user)
+    {
+        if(user.length()>0)
         {
-            stock =  originale.charAt(i);
-            inversée = inversée+ stock;
+            return user.charAt(user.length()-1) + inverse(user.substring(0, user.length()-1));
         }
-        System.out.println(inversée);
+        else
+        {
+            return user;
+        }
     }
 }

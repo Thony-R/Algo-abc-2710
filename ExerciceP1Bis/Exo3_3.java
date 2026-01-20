@@ -14,33 +14,10 @@ public class Exo3_3
         {
             System.out.print("\nEntrer un texte de 120 caractères minimum\n> ");
             user = sc.nextLine().toLowerCase();
-            sc.close();
         }
         while(user.length()<120);
-
-        user.replace('â', 'a');
-        user.replace('à', 'a');
-        user.replace('ä', 'a');
-
-        user.replace('é', 'e');
-        user.replace('è', 'e');
-        user.replace('ê', 'e');
-        user.replace('ë', 'e');
-
-        user.replace('î', 'i');
-        user.replace('ï', 'i');
-
-        user.replace('ô', 'o');
-        user.replace('ö', 'o');
-
-        user.replace('ù', 'u');
-        user.replace('û', 'u');
-        user.replace('ü', 'u');
-
-        user.replace('ç', 'c');
-
-        user.replace('ÿ', 'y');
-
+        sc.close();
+        user = Exo3_3.replaceChar(user);
         char lettre = 'a';
         for(int i =0;i<lettres.length;i++)
         {
@@ -65,4 +42,32 @@ public class Exo3_3
         }
 
     }
+    static String replaceChar(String chaine)
+    {
+        chaine = chaine.replace('â', 'a');
+        chaine = chaine.replace('à', 'a');
+        chaine = chaine.replace('ä', 'a');
+
+        chaine = chaine.replace('é', 'e');
+        chaine = chaine.replace('è', 'e');
+        chaine = chaine.replace('ê', 'e');
+        chaine = chaine.replace('ë', 'e');
+
+        chaine = chaine.replace('î', 'i');
+        chaine = chaine.replace('ï', 'i');
+
+        chaine = chaine.replace('ô', 'o');
+        chaine = chaine.replace('ö', 'o');
+
+        chaine = chaine.replace('ù', 'u');
+        chaine = chaine.replace('û', 'u');
+        chaine = chaine.replace('ü', 'u');
+
+        chaine = chaine.replace('ç', 'c');
+
+        chaine = chaine.replace('ÿ', 'y');
+
+        return chaine;
+    }
 }
+

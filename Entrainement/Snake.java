@@ -8,7 +8,9 @@ public class Snake
     static int dim = 11;
     static int faceX = 5;
     static int faceY = 5;
-    static int lFaceX, lFaceY,tempX,tempY;
+    static int lFaceX = faceX;
+    static int lFaceY = faceY;
+
     static int pommeX,pommeY;
     static ArrayList<int[]>PCorps= new ArrayList<>();
     static int [][]Temp;
@@ -17,20 +19,37 @@ public class Snake
     static String RESET = "\033[0m";
     public static void main(String[]args)
     {
+        System.out.print("\033\143");
         PPomme();
-        while (true) 
+        boolean jeux = true;
+        while (jeux) 
         {
             Dammier();
             DPomme();
-            if(pommeX == faceX && pommeY == faceY)
-            {   CSerpent();
-                PPomme();  
-            }
+            System.out.print("\033[s");
+            System.out.print("\033[38;2;0;255;0m\033[20;94HScore : "+PCorps.size());
+            System.out.print("\033[u"); 
             CSerpent();
             SerpentF();
             Dep();
-            
+            if(faceY<0 || faceX<0 || faceX>=dim|| faceY>=dim)
+            {
+                jeux = false;
+            }
+            for(int i =0;i<PCorps.size();i++)
+            {
+                if(PCorps.get(i)[0]==faceX && PCorps.get(i)[1]==faceY)
+                {
+                    jeux = false;
+                }
+            }
+            if(pommeX == faceX && pommeY == faceY)
+            {   
+                PCorps.add(new int[]{lFaceX,lFaceY});
+                PPomme();  
+            }
         }
+        System.out.println("perdue");
 
     }
     // Déplacemnt
@@ -70,7 +89,6 @@ public class Snake
         if(pommeX == faceX && pommeY == faceY)
         {
             PCorps.add(new int []{lFaceX,lFaceY});
-            PCorps.get(PCorps.size()-1);
         }
 
         if(PCorps.size()>0)
@@ -85,29 +103,22 @@ public class Snake
 
             for(int i = PCorps.size()-1;i>=0;i--)
             {
-                if(lFaceX != PCorps.get(i)[0]||lFaceY!= PCorps.get(i)[1])
+                if(i==0)
                 {
 
                     PCorps.get(i)[0] = lFaceX;
                     PCorps.get(i)[1] = lFaceY;
-
-                    System.out.print("\033[s");
-                    System.out.print("\033["+(PCorps.get(i)[1]*4+2)+";"+(PCorps.get(i)[0]*8+3)+"H"+"\033[38;2;0;198;79m████");
-                    System.out.print("\033["+(PCorps.get(i)[1]*4+3)+";"+(PCorps.get(i)[0]*8+3)+"H"+"\033[38;2;0;198;79m████");
-                    System.out.print("\033[20;94HScore : "+PCorps.size());
-                    System.out.print("\033[u"); 
                 }
 
-                else if(i != PCorps.size()-1)
+                else
                 {
-                    PCorps.get(i)[0] = Temp[i][0];
-                    PCorps.get(i)[1] = Temp[i][1];
-                    System.out.print("\033[s");
-                    System.out.print("\033["+(PCorps.get(i)[1]*4+2)+";"+(PCorps.get(i)[0]*8+3)+"H"+"\033[38;2;0;198;79m████");
-                    System.out.print("\033["+(PCorps.get(i)[1]*4+3)+";"+(PCorps.get(i)[0]*8+3)+"H"+"\033[38;2;0;198;79m████");
-                    System.out.print("\033[20;94HScore : "+PCorps.size());
-                    System.out.print("\033[u"); 
+                    PCorps.get(i)[0] = Temp[i-1][0];
+                    PCorps.get(i)[1] = Temp[i-1][1]; 
                 }
+                System.out.print("\033[s");
+                System.out.print("\033["+(PCorps.get(i)[1]*4+2)+";"+(PCorps.get(i)[0]*8+3)+"H"+"\033[38;2;0;198;79m████");
+                System.out.print("\033["+(PCorps.get(i)[1]*4+3)+";"+(PCorps.get(i)[0]*8+3)+"H"+"\033[38;2;0;198;79m████");
+                System.out.print("\033[u");
             }
         }
     }
@@ -123,8 +134,29 @@ public class Snake
     public static void PPomme()
     {
         Random rdm = new Random();
-        pommeX = rdm.nextInt(dim);
-        pommeY = rdm.nextInt(dim);
+        boolean pValide=true;
+
+        do 
+        {
+            pommeX = rdm.nextInt(dim);
+            pommeY = rdm.nextInt(dim);
+
+            for(int i =0;i<PCorps.size();i++)
+            {
+                if(PCorps.get(i)[0]==pommeX && PCorps.get(i)[1]==pommeY)
+                {
+                    pValide=false;
+                    break;
+                }
+            }
+
+            if(pommeX == faceX && pommeY == faceY)
+            {
+                pValide=false;
+                continue;
+            }  
+        } while (pValide);
+
     }
 
     // Affichage d'une pomme
@@ -139,7 +171,7 @@ public class Snake
     // Affichage du Dammier
     public static void Dammier()
     {
-        System.out.print("\033\143");
+        System.out.print("\033[1;1H");
         for(int y=0;y<dim;y++)
         {
             for(int i=0;i<4;i++)
