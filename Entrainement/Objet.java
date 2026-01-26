@@ -51,7 +51,7 @@ public class Objet
         sPoint.setX(vaX);
         sPoint.setY(vaY);
 
-        System.out.println("la distance entre les 2 point est de clear"+point.disPoint(sPoint));
+        System.out.println("la distance entre les 2 point est de : "+point.disPoint(sPoint));
         sc.close();
     }
     static public class Point 
@@ -97,8 +97,8 @@ public class Objet
         }
         public void seDeplacer(int _newX,int _newY)
         {
-            this.X=_newX;
-            this.Y= _newY;
+            this.X+=_newX;
+            this.Y+= _newY;
         }
         public Point symAbscisse()
         {
