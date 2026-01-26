@@ -7,8 +7,7 @@ public class InverseMots
     public static void main(String[] args) 
     {
         Scanner sc = new Scanner(System.in);
-        String originale, inversée="";
-        char stock;
+        String originale;
 
         System.out.print("\nNotez votre mots ou phrase...\n> ");
         ScannersTypes.STRING(sc);
