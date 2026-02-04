@@ -2,15 +2,15 @@ package Entrainement.Compte;
 import java.time.LocalDateTime;
 
 
-public class ObjCompte 
+public class Compte 
 {
-    private int numCompte;
-    private String nom;
-    private double solde;
-    private double decouvertAutorise;
+    public int numCompte;
+    protected String nom;
+    protected double solde;
+    protected double decouvertAutorise;
 
     //constructeur
-    public ObjCompte()
+    public Compte()
     {
         this.numCompte = id();
         this.nom = "sans nom";
@@ -18,12 +18,12 @@ public class ObjCompte
         this.decouvertAutorise = 0;
     }
 
-    public ObjCompte(String _nom, double _solde)
+    public Compte(String _nom, double _solde,double _decouvertAutorise)
     {
         this.numCompte = id();
         this.nom = _nom;
         this.solde = _solde;
-        this.decouvertAutorise = -500;
+        this.decouvertAutorise = _decouvertAutorise;
     }
 
     // getters && setters
@@ -47,7 +47,7 @@ public class ObjCompte
     //affichage de l'Objet
     public String toString()
     {
-        return "|   Compte  |\n\nNuméro de compte : "+this.numCompte+"\nNom : "+this.nom+"\nSolde : "+this.solde+"\nDécouvert autorisé : "+this.decouvertAutorise;
+        return "\t|   Compte  |\n\nNuméro de compte : "+this.numCompte+"\nNom : "+this.nom+"\nSolde : "+this.solde+"\nDécouvert autorisé : "+this.decouvertAutorise;
     }
 
     //Génération du num de Compte
@@ -75,7 +75,7 @@ public class ObjCompte
     }
 
     // Transfert
-    public boolean transfert(ObjCompte _autreCompte,double _transfert)
+    public boolean transfert(Compte _autreCompte,double _transfert)
     {
         boolean essay = verif(_transfert);
         if(essay)
@@ -102,7 +102,7 @@ public class ObjCompte
         return possible;
     }
 
-    public boolean superieur(ObjCompte _autreCompte)
+    public boolean superieur(Compte _autreCompte)
     {
         boolean sup;
         if(this.solde >= _autreCompte.solde)
